@@ -18,7 +18,6 @@ export function useLang() {
     }
     setSearchParams(s);
     setLang(l);
-    window.location.reload();
   }
 
   return {

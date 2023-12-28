@@ -2,7 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import { useUpdate } from 'ahooks';
+import { useMount, useUpdate } from 'ahooks';
+import { GithubIcon } from 'lucide-react';
 
 import { I18N_KEYS } from '@/constants/i18n-key';
 import { PATHS } from '@/constants/path';
@@ -12,6 +13,7 @@ import { cn } from '@/libs';
 
 import BackToTop from '../back-to-top';
 import { Button, buttonVariants } from '../button';
+import { GiscusComment } from '../giscus-comment';
 
 type Props = {
   children: React.ReactNode;
@@ -19,8 +21,12 @@ type Props = {
 
 export function MainLayout({ children }: Props) {
   const { t } = useTranslation();
-  const { setCurrentLang } = useLang();
+  const { setCurrentLang, lang } = useLang();
   const update = useUpdate();
+
+  useMount(() => {
+    setCurrentLang(lang);
+  });
 
   function switchToTheme(theme: 'light' | 'dark') {
     if (theme === 'dark') {
@@ -32,6 +38,15 @@ export function MainLayout({ children }: Props) {
     }
 
     update();
+  }
+
+  function changeLang(l: 'zh' | 'en') {
+    setCurrentLang(l);
+    window.location.reload();
+  }
+
+  function goToBottom() {
+    window.scrollTo(0, document.body.scrollHeight);
   }
 
   return (
@@ -62,18 +77,34 @@ export function MainLayout({ children }: Props) {
           <Button onClick={() => switchToTheme('dark')}>
             {t(I18N_KEYS.SWITCH_TO_DARK_THEME)}
           </Button>
-          <Button onClick={() => setCurrentLang('zh')}>
+          <Button onClick={() => changeLang('zh')}>
             {t(I18N_KEYS.SWITCH_TO_CHINESE)}
           </Button>
-          <Button onClick={() => setCurrentLang('en')}>
+          <Button onClick={() => changeLang('en')}>
             {t(I18N_KEYS.SWITCH_TO_ENGLISH)}
           </Button>
+          <Button onClick={goToBottom}>{t(I18N_KEYS.GO_TO_COMMENT)}</Button>
         </div>
       </div>
 
       {children}
 
       <BackToTop />
+
+      <Link
+        className={cn(buttonVariants(), 'fixed top-2 right-32 z-50')}
+        to={PATHS.GITHUB_SOURCE_REPO}
+        target="_blank"
+      >
+        <GithubIcon />
+      </Link>
+
+      <div className="container pt-12 flex flex-col">
+        <h2 className="scroll-m-20 text-center border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 mb-5">
+          {t(I18N_KEYS.COMMENT)}
+        </h2>
+        <GiscusComment />
+      </div>
     </div>
   );
 }

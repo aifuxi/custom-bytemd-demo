@@ -6,6 +6,9 @@ export const I18N_KEYS = {
   SWITCH_TO_DARK_THEME: 'switch-to-dark-theme',
   SWITCH_TO_CHINESE: 'switch-to-cn',
   SWITCH_TO_ENGLISH: 'switch-to-en',
+  COMMENT: 'comment',
+  GO_TO_COMMENT: 'go-to-comment',
+  TOC: 'toc',
 };
 
 export const I18N_QUERY_KEY = 'lng';

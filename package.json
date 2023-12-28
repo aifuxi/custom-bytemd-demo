@@ -3,6 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aifuxi/custom-bytemd-demo"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -22,6 +26,7 @@
     "@bytemd/plugin-medium-zoom": "^1.21.0",
     "@bytemd/plugin-mermaid": "^1.21.0",
     "@bytemd/react": "^1.21.0",
+    "@giscus/react": "^2.4.0",
     "@jsdevtools/rehype-toc": "^3.0.2",
     "@radix-ui/react-collapsible": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",

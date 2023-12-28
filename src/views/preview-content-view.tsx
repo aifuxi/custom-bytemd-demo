@@ -1,6 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ChevronDownIcon } from 'lucide-react';
+
+import { I18N_KEYS } from '@/constants/i18n-key';
 
 import { Button } from '../components/button';
 import { BytemdViewer } from '../components/bytemd';
@@ -18,6 +21,7 @@ type Props = {
 export default function PreviewContentView({ content }: Props) {
   const tocWrapperRef = React.useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = React.useState(true);
+  const { t } = useTranslation();
 
   React.useEffect(() => {
     const toc = document.getElementsByClassName('toc')?.[0];
@@ -62,7 +66,7 @@ export default function PreviewContentView({ content }: Props) {
   }, []);
 
   return (
-    <div className="container pb-96">
+    <div className="container pb-32">
       <div className="flex justify-between">
         <Collapsible
           open={isOpen}
@@ -73,7 +77,9 @@ export default function PreviewContentView({ content }: Props) {
             className="flex items-center justify-between space-x-4 pl-4 cursor-pointer"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <h4 className="text-sm font-semibold">目录</h4>
+            <h4 className="text-sm font-semibold line-clamp-1 text-ellipsis break-all">
+              {t(I18N_KEYS.TOC)}
+            </h4>
             <CollapsibleTrigger asChild>
               <Button variant="ghost" className="w-9 p-0">
                 <ChevronDownIcon
