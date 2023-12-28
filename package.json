@@ -1,0 +1,102 @@
+{
+  "name": "custom-bytemd-demo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "lint:fix": "eslint --no-cache --fix ./",
+    "formate": "prettier --write --log-level warn \"./**/*.{js,jsx,ts,tsx}\"",
+    "cz": "git cz"
+  },
+  "dependencies": {
+    "@bytemd/plugin-breaks": "^1.21.0",
+    "@bytemd/plugin-frontmatter": "^1.21.0",
+    "@bytemd/plugin-gemoji": "^1.21.0",
+    "@bytemd/plugin-gfm": "^1.21.0",
+    "@bytemd/plugin-highlight-ssr": "^1.21.0",
+    "@bytemd/plugin-math": "^1.21.0",
+    "@bytemd/plugin-medium-zoom": "^1.21.0",
+    "@bytemd/plugin-mermaid": "^1.21.0",
+    "@bytemd/react": "^1.21.0",
+    "@jsdevtools/rehype-toc": "^3.0.2",
+    "@radix-ui/react-collapsible": "^1.0.3",
+    "@radix-ui/react-slot": "^1.0.2",
+    "ahooks": "^3.7.8",
+    "bytemd": "^1.21.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "github-slugger": "^2.0.0",
+    "hast-util-from-html-isomorphic": "^2.0.0",
+    "i18next": "^23.7.11",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "lucide-react": "^0.302.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^14.0.0",
+    "react-router-dom": "^6.21.1",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
+    "tailwind-merge": "^2.2.0",
+    "tailwindcss-debug-screens": "^2.2.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "@tailwindcss/typography": "^0.5.10",
+    "@trivago/prettier-plugin-sort-imports": "^4.2.1",
+    "@types/eslint": "^8.44.7",
+    "@types/lodash-es": "^4.17.12",
+    "@types/markdown-navbar": "^1.4.0",
+    "@types/mockjs": "^1.0.7",
+    "@types/node": "20.3.3",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "10.4.14",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-git": "^1.7.1",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "postcss": "8.4.24",
+    "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.5.1",
+    "tailwindcss": "3.3.2",
+    "tailwindcss-animate": "^1.0.6",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
+  },
+  "lint-staged": {
+    "./**/*.{js,jsx,ts,tsx}": [
+      "pnpm lint:fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">= 16"
+  }
+}
