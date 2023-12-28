@@ -37,7 +37,7 @@ export function GiscusComment() {
       repo="aifuxi/custom-bytemd-demo"
       repoId="R_kgDOK-kawQ"
       category="Announcements"
-      categoryId="DIC_kwDOJ3P-jc4CX26h"
+      categoryId="DIC_kwDOK-kawc4CcDoQ"
       mapping="url"
       reactionsEnabled="1"
       emitMetadata="0"
