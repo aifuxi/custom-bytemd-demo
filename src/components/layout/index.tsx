@@ -13,7 +13,6 @@ import { cn } from '@/libs';
 
 import BackToTop from '../back-to-top';
 import { Button, buttonVariants } from '../button';
-import { GiscusComment } from '../giscus-comment';
 
 type Props = {
   children: React.ReactNode;
@@ -43,10 +42,6 @@ export function MainLayout({ children }: Props) {
   function changeLang(l: 'zh' | 'en') {
     setCurrentLang(l);
     window.location.reload();
-  }
-
-  function goToBottom() {
-    window.scrollTo(0, document.body.scrollHeight);
   }
 
   return (
@@ -83,7 +78,6 @@ export function MainLayout({ children }: Props) {
           <Button onClick={() => changeLang('en')}>
             {t(I18N_KEYS.SWITCH_TO_ENGLISH)}
           </Button>
-          <Button onClick={goToBottom}>{t(I18N_KEYS.GO_TO_COMMENT)}</Button>
         </div>
       </div>
 
@@ -98,13 +92,6 @@ export function MainLayout({ children }: Props) {
       >
         <GithubIcon />
       </Link>
-
-      <div className="container pt-12 flex flex-col">
-        <h2 className="scroll-m-20 text-center border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 mb-5">
-          {t(I18N_KEYS.COMMENT)}
-        </h2>
-        <GiscusComment />
-      </div>
     </div>
   );
 }
